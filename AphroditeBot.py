@@ -94,6 +94,11 @@ def handle_incoming(reader, writer):
     message = data.decode()
     cleanMessage = " ".join(ast.literal_eval(message))
 
+    cleanMessage = cleanMessage.replace('<BR>', '\n')
+    cleanMessage = cleanMessage.replace('</BR>', '\n')
+    cleanMessage = cleanMessage.replace('</br>', '\n')
+    cleanMessage = cleanMessage.replace('<br>', '\n')
+    
     loop.create_task(queue.put(cleanMessage))
 
 @asyncio.coroutine

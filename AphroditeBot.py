@@ -106,6 +106,14 @@ def handle_incoming(reader, writer):
     cleanMessage = cleanMessage.replace('<font face=Times New Roman>', '')
     cleanMessage = cleanMessage.replace('<i>', '')
     cleanMessage = cleanMessage.replace('</i>', '')
+    cleanMessage = cleanMessage.replace('<I>', '')
+    cleanMessage = cleanMessage.replace('</I>', '')
+    cleanMessage = cleanMessage.replace('<B>', '')
+    cleanMessage = cleanMessage.replace('</B>', '')
+    cleanMessage = cleanMessage.replace('<b>', '')
+    cleanMessage = cleanMessage.replace('</b>', '')
+    cleanMessage = cleanMessage.replace('<center>', '')
+    cleanMessage = cleanMessage.replace('</center>', '')
 
 
     loop.create_task(queue.put(cleanMessage))

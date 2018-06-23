@@ -99,6 +99,15 @@ def handle_incoming(reader, writer):
     cleanMessage = cleanMessage.replace('</br>', '\n')
     cleanMessage = cleanMessage.replace('<br>', '\n')
     
+    cleanMessage = cleanMessage.replace('<font face=Verdana nocolor=black>', '')
+    cleanMessage = cleanMessage.replace('<font color = #101010>', '')
+    cleanMessage = cleanMessage.replace('</font>', '')
+    cleanMessage = cleanMessage.replace('</font>', '')
+    cleanMessage = cleanMessage.replace('<font face=Times New Roman>', '')
+    cleanMessage = cleanMessage.replace('<i>', '')
+    cleanMessage = cleanMessage.replace('</i>', '')
+
+
     loop.create_task(queue.put(cleanMessage))
 
 @asyncio.coroutine
